@@ -6,37 +6,33 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:02:49 by houaslam          #+#    #+#             */
-/*   Updated: 2022/10/30 14:00:31 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/05/05 10:49:28 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	int		i;
-	int		j;
-	char	*p;
-	size_t	b;
+	size_t	i;
+	size_t	c;
+	char	*str;
 
-	if (!s1 || !s2)
+	if (!s1 && s2)
+		return (ft_strdup(s2));
+	if (s1 && !s2)
+		return (ft_strdup(s1));
+	if (!s1 && !s2)
 		return (NULL);
-	i = 0;
-	j = 0;
-	b = ft_strlen((char *)s2);
-	p = (char *)malloc(sizeof(char) * (ft_strlen((char *)s1) + b) + 1);
-	if (!p)
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
-	while (s1[i] != '\0')
-	{
-		p[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		p[i + j] = s2[j];
-		j++;
-	}
-	p[i + j] = '\0';
-	return (p);
+	i = -1;
+	c = 0;
+	while (s1[++i] != '\0')
+			str[i] = s1[i];
+	while (s2[c] != '\0')
+		str[i++] = s2[c++];
+	str[i] = '\0';
+	return (str);
 }

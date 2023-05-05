@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:42:25 by houaslam          #+#    #+#             */
-/*   Updated: 2022/11/09 09:32:47 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/05/05 10:45:36 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,4 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	ft_memset(res, 0, size * count);
 	return (res);
-}
-
-int main()
-{
-	char *ptr;
-	ptr = "hello";
-	ptr = ft_calloc(4 , sizeof(ptr))
 }
